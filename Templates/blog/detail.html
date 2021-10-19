@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% blocK content  %}
+    <div class="row">
+     <div class="col-md-6" >
+        <img src="{{produt.imag}}" alt="">
+     </div>
+    </div>
+    <div class="col-md-6">
+      <p>{{produt.tilte}}</p>
+    </div>
+    <div class="col-md-6">
+        <p>{{produt.price_sell}}</p>
+      </div>
+{% endblock  %}

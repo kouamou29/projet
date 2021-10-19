@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+{% if form.errors %}
+<p>your username and password didn't machat, please try again</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+       <p>account doesn't have access to this page. To proceed,
+       please login with an account that has access.</p>
+       {% else %}
+       <p>Please login to see this page</p>
+    {% endif %}  
+{% endif %}
+
+<div class="container">
+<form method="post" action="{% url 'login' %}">
+ {% csrf_token %}
+
+ <table class="table">
+     <tr>
+         <th>{{form.username.label_tag}}</th>
+         <th>{{form.username}}</th>
+     </tr>
+       
+     <tr>
+         <th>{{form.password.label_tag}}</th>
+         <th>{{form.password}}</th>
+     </tr>
+
+ </table>
+  <input type="submit" value="login">
+  <input type="hidden" name="next" id="" value="{{next}}">
+</form>
+</div>
+{% endblock  %}
+    

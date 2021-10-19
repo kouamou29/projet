@@ -1,0 +1,60 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+ <div class="container  ">
+
+   <div class="row">
+       <div class="col-md-12">
+         <form class="card card-sm">
+           <div class="card-body row no-gutters  align-items-center">
+            <div class="col">
+              <input type="rearch" name="item_name" placeholder="Rearch for Product" class="form-control form-control-borderless">
+            </div>
+            <div class="col-auto">
+             <button class="btn btn-warning" type="submit" >Rearch</button>
+            </div>
+           </div>
+          </form>
+       </div>
+   </div>
+
+
+  <div class="row"  >
+  {% for pro in produt  %}
+   <div class=" col-md-3  ">
+    <div class="card">
+      <img src="{{pro.imag.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <div class="card-text">
+          {{pro.name}}
+       </div>
+        <div class="card-text"> 
+          ${{pro.price_sell}}
+       </div>
+        <a href="#" class="btn btn-outline-warning "> Ajoute Panier </a>
+         <a class="btn btn-secondary " href="/{{  produt.id }}">Detail </a>
+      </div>
+      </div>
+    </div>
+   {% endfor %} 
+   
+
+
+<nav class="pagination pagination-lg justify-content-center mt-3">
+       <ul class="pagination pagination-lg  ">
+          {% if pag_obj.has_previous %}
+          <a  class="page-link" href="?page={{pag_obj.previous_page_number}}">Retour</a>
+          {% endif %}
+       
+
+             {% if pag_obj.has_next %}
+            <a  class= "page-link "href="?page={{pag_obj.paginator_num_pages}}"> Page Precédent</a>
+            <a class="page-link " href="?page={{pag_obj.next_page_number}}"> Page Suivant </a>
+             {% endif %}
+         </ul>
+     </nav>
+    </nav>
+   <script src="{% static 'app/app.js'%}"></script>
+  {% endblock  %}
