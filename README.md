@@ -1,1 +1,1 @@
-# je pourais travailler avec vous les gars django
+# je pourais travailler avec vous les gars,sur Django
