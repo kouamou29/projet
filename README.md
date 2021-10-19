@@ -1,1 +1,1 @@
-# je pourais trail avec vous 
+# je pourais travailler avec vous les gars django
